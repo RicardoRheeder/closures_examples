@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>More Closure Examples</h2>
+
+<p>A demo to increment a counter each time the function is called - using closures.</p>
+<p>To see outputs: Right-click > Inspect > Console</p>
+
+<p id="demo"></p>
+
+</body>
+
+<script>
+    function addCount(i) { 
+        var counter = i;
+        var displayCount = function() {
+            console.log(counter++);
+            counter++;
+        };
+        return displayCount; 
+    }
+
+    var myCount = addCount(1);
+    myCount(); // 1
+    myCount(); // 2
+    myCount(); // 3
+
+    // new closure - new outer scope - new contor variable
+    var myOtherCount = addCount(10);
+    myOtherCount(); // 10 
+    myOtherCount(); // 11
+
+    // myContor was not affected 
+    myCount(); // 4
+</script>
+
+</html>
